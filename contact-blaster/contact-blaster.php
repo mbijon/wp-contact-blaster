@@ -1,11 +1,11 @@
 <?php
 /************************************************************************
 Plugin Name: Contact Blaster
-Plugin URI: http://www.etchsoftware.com/
-Description: Change the compression-level of uploaded images and thumbnails. Get better image quality or save bandwidth.
+Plugin URI: http://wordpress.org/plugins/contact-blaster/
+Description: Simplest contact forms ever: Converts basic mailto: links on any Page, Post or widget into a clean, formatted contact form, thanks to the <a href="//squaresend.com/docs#Customization">SquareSend.com API</a>
 Version: 1.0
 Author: Mike Bijon, ETCH Software
-Author URI: http://www.mbijon.com/about-mike-bijon/
+Author URI: http://www.etchsoftware.com/
 License: GPLv2
 
 Text Domain:  cblaster-plugin
