@@ -3,7 +3,7 @@
 Plugin Name: Contact Blaster
 Plugin URI: http://wordpress.org/plugins/contact-blaster/
 Description: Simplest contact forms ever: Converts basic mailto: links on any Page, Post or widget into a clean, formatted contact form, thanks to the <a href="//squaresend.com/docs#Customization">SquareSend.com API</a>
-Version: 1.0
+Version: 2.0
 Author: Mike Bijon, ETCH Software
 Author URI: http://www.etchsoftware.com/
 License: GPLv2
