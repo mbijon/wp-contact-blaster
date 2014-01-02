@@ -19,11 +19,18 @@ jQuery(document).ready(function($) {
     });
 	
 	// Outputs "mailto:" string to WP editor
-	function cblaster_mailto_output() {
+	function cblaster_mailto_output( sendtoEmail, sendtoTitle ) {
 		
 		var cblaster_editor_string = '';
+		
+		if ( ! sendtoEmail ) {
+			sendtoEmail = 'CHANGE_ME@example.com';
+		}
+		if ( ! sendtoTitle ) {
+			sendtoTitle = 'Email+Subject+Line';
+		}
         
-        cblaster_editor_string = '<a href="mailto:CHANGEtoYourEMAIL@YourSite.com?sqs_title=Contact+Blaster+Email+Subject+Line">Contact</a>';
+        cblaster_editor_string = '<a href="mailto:' + sendtoEmail + '?sqs_title=' + sendtoTitle + '">Contact</a>';
         
         var win = window.dialogArguments || opener || parent || top;
         win.send_to_editor( cblaster_editor_string );
