@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) OR exit;
 
 if ( ! class_exists( 'Contact_Blaster_Shortcode' ) ) :
 
@@ -7,11 +8,15 @@ if ( ! class_exists( 'Contact_Blaster_Shortcode' ) ) :
  * Not a real "shortcode" but close-enough until we add a text-entry overlay & real shortcode
  *
  * @since 2.0
+ * @package Contact Blaster
  */
 class Contact_Blaster_Shortcode {
 	
 	/**
 	 * Initialize the shortcode-like button
+	 *
+	 * @since 2.0
+	 * @return		HTML output: An above-editor button & JS for WP-Admin
 	 */
 	public static function init() {
 		
@@ -24,6 +29,7 @@ class Contact_Blaster_Shortcode {
 	 * Adds a button above the Post/Page editor, next to "Add Media"
 	 *
 	 * @since 2.0
+	 * @return		HTML, button above WP's WYSIWYG editor
 	 */
 	public static function echo_cblaster_above_editor() {
 		
@@ -44,6 +50,8 @@ class Contact_Blaster_Shortcode {
 	 * Adds a button above the Post/Page editor, next to "Add Media"
 	 *
 	 * @since 2.0
+	 * @param		$hook	WP-admin pagename
+	 * @return		JavaScript enqueued, only to Post & New Post admin pages
 	 */
 	public static function enqueue_cblaster_editor_js( $hook ) {
 		
