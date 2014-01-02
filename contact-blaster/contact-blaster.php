@@ -3,7 +3,7 @@
 Plugin Name: Contact Blaster
 Plugin URI: http://wordpress.org/plugins/contact-blaster/
 Description: Simplest contact forms ever: Converts basic mailto: links on any Page, Post or widget into a clean, formatted contact form, thanks to the <a href="//squaresend.com/docs#Customization">SquareSend.com API</a>
-Version: 2.0
+Version: 2.1
 Author: Mike Bijon, ETCH Software
 Author URI: http://www.etchsoftware.com/
 License: GPLv2
@@ -13,7 +13,7 @@ Domain Path:  /languages/
 
 ************************************************************************
 
-    Copyright 2013 Mike Bijon, Etch Software LLC (mike@etchsoftware.com)
+    Copyright 2013-2014 Mike Bijon (mike@etchsoftware.com)
     
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2, 
@@ -37,15 +37,28 @@ if ( ! class_exists( 'Contact_Blaster_Plugin' ) ) :
 define( 'CBLASTER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'CBLASTER_PLUGIN_DIR', dirname( __FILE__ ) . '/' );
 
+
+/**
+ * Plugin wrapper class
+ *
+ * @since 1.0
+ * @package Contact Blaster
+ * @author  Mike Bijon <mike@etchsoftware.com>
+ */
 class Contact_Blaster_Plugin {
 	
 	public $error = '';
 	
-	const CBLASTER_VERSION = '1.0';
+	const CBLASTER_VERSION = '2.1';
+	
+	protected $cblaster_slug = 'cblaster-plugin';
 	
 	
 	/**
 	 * Constructor: Actions setup
+	 *
+	 * @since 1.0
+	 * @return		HTML & script content for each of public site & WP-Admin
 	 */
 	public function __construct() {
 		
@@ -75,7 +88,8 @@ class Contact_Blaster_Plugin {
 	public function cblaster_localize() {
 		
 		// Localization boilerplate
-		load_plugin_textdomain( 'cblaster-plugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		$domain_slug = $this->cblaster_slug;
+		load_plugin_textdomain( $domain_slug, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		if ( '' != WPLANG )
 			setlocale( LC_ALL, WPLANG . '.UTF-8' );
 		
@@ -86,6 +100,7 @@ class Contact_Blaster_Plugin {
 	 * Plugin setup, post-construct. Fires on 'init' hook
 	 *
 	 * @since 1.0
+	 * @return		JavaScript enqueued, only to Post & New Post admin pages
 	 */
 	public function load_squaresend() {
 		
@@ -104,10 +119,15 @@ class Contact_Blaster_Plugin {
 	 * Deletes any plugin options & transients
 	 *
 	 * @since 1.0
+	 * @param		boolean		$network_wide		Only true when WPMU superadmin uses "Network Deactivate"
+	 * @return		JavaScript enqueued, only to Post & New Post admin pages
 	 */
 	public function plugin_deactivation( $network_wide ) {
 		
-		return true;
+		if ( ! current_user_can( 'activate_plugins' ) )
+			return;
+		
+		// TODO: ??? Prompt user that mailto: addresses may not be encoded anymore
 		
 	}
 	
