@@ -37,7 +37,7 @@ class Contact_Blaster_Shortcode {
 		$image_btn = '';
 		
 		$out = '';
-		$out .= '<a href="#" id="cblaster_button" class="button" ';
+		$out .= '<a href="#TB_inline?width=520&height=600&inlineId=cblaster_shortcode_form" id="cblaster_button" class="thickbox button" ';
 		$out .= 'title="' . __( 'Insert Contact Form', 'cblaster-plugin' ) . '">';
 		//$out .= '<img src="' . $image_btn . '" alt="' . __( 'Insert Contact Form', 'cblaster-plugin' ) . '" />';
 		$out .= __( 'Insert Contact Form', 'cblaster-plugin' ) . '</a>';

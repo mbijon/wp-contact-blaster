@@ -14,7 +14,9 @@ jQuery(document).ready(function($) {
 		
         cblaster_mailto_output();
 		
-		alert( 'Halfway there!' + '\n' + 'We just added a "Contact" link to your Post' + '\n\n' + 'LAST STEP: Use the "Insert/edit link" button to add your own email address' );
+		var alertMsg = 'Halfway there!' + '\n' + 'We just added a "Contact" link to your Post' + '\n\n';
+		alertMsg += 'LAST STEP: Use the "Insert/edit link" button to add your own email address';
+		//alert( alertMsg );
 		
     });
 	
