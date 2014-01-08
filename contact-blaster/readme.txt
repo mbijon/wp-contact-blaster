@@ -39,6 +39,10 @@ PRO TIPS:
 
 Yes, you need an account and a registered email address on SquareSend for this plugin to be able to send messages through that service. If you don't have an account on SquareSend your links will just be basic mailto:'s
 
+= Hold on! Do I have to pay to try this? =
+
+*Not at all!* Squaresend has a [Free Forever](https://squaresend.com/) account that handles up to 50 emails/month for no charge.
+
 = Why isn't the contact form working? =
 
 The mailto: link must use the same email address that you activated on SquareSend or the form will not activate.
